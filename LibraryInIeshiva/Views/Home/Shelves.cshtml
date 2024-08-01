@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LibraryInIeshiva.Models.Shelf>
+
+@{
+    ViewData["Title"] = "Shelves";
+}
+
+<h1>Shelves</h1>
+
+<p>
+    <a asp-action="createSehlf">Create New shelf</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.length)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.length)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditShelf", new { id=item.Id }) |
+                @Html.ActionLink("Details", "ShelfDetails", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "DeleteShelf", new { id=item.Id })|
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
